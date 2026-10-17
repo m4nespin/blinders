@@ -1,11 +1,16 @@
 /* Rules only apply while content.js sets the matching attribute on <html>. */
 
-/* Shorts: shelves, cards, nav entries, channel tab */
+/* Shorts: shelves, cards, sidebar/menu entries, channel tab, filter chips */
 html[data-blinders-shorts] :is(
+  /* shelves */
   ytd-rich-shelf-renderer[is-shorts],
-  ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+  ytd-rich-shelf-renderer:has(ytm-shorts-lockup-view-model),
+  ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts], ytm-shorts-lockup-view-model),
   ytd-reel-shelf-renderer,
   grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
+  ytm-reel-shelf-renderer,
+  ytm-rich-section-renderer:has(ytm-reel-shelf-renderer, ytm-shorts-lockup-view-model),
+  /* single cards */
   ytm-shorts-lockup-view-model-v2,
   ytm-shorts-lockup-view-model,
   ytd-rich-item-renderer:has(a[href^="/shorts/"]),
@@ -13,10 +18,18 @@ html[data-blinders-shorts] :is(
   ytd-grid-video-renderer:has(a[href^="/shorts/"]),
   ytd-compact-video-renderer:has(a[href^="/shorts/"]),
   yt-lockup-view-model:has(a[href^="/shorts/"]),
-  ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+  ytd-notification-renderer:has(a[href^="/shorts/"]),
+  ytm-video-with-context-renderer:has(a[href^="/shorts/"]),
+  ytm-compact-video-renderer:has(a[href^="/shorts/"]),
+  /* navigation: expanded sidebar has only title="Shorts", mini sidebar has href */
+  ytd-guide-entry-renderer:has(a[href^="/shorts"], a[title="Shorts"]),
   ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+  ytd-mini-guide-entry-renderer[aria-label="Shorts"],
   ytd-pivot-bar-item-renderer:has(a[href^="/shorts"]),
-  yt-tab-shape[tab-title="Shorts"]
+  ytm-pivot-bar-item-renderer:has(.pivot-shorts),
+  yt-tab-shape[tab-title="Shorts"],
+  /* filter chips, tagged by content.js */
+  [data-blinders-shorts-chip]
 ) {
   display: none !important;
 }
@@ -29,5 +42,10 @@ html[data-blinders-members] :is(
   ytd-compact-video-renderer,
   yt-lockup-view-model
 ):has(.ytBadgeShapeCommerce, .badge-style-type-members-only) {
+  display: none !important;
+}
+
+/* Watch-page recommendations sidebar (moves under the video on narrow windows; playlist panel stays) */
+html[data-blinders-related] ytd-watch-flexy #related {
   display: none !important;
 }
