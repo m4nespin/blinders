@@ -54,3 +54,22 @@ html[data-blinders-related] ytd-watch-flexy #related {
 html[data-blinders-notifications] ytd-notification-topbar-button-renderer {
   display: none !important;
 }
+
+/* Sidebar sections are found by their fixed links, since the titles are localized */
+
+/* "Explore": Music channel, Gaming, … */
+html[data-blinders-explore] ytd-guide-section-renderer:has(
+  a[href="/gaming"],
+  a[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"]
+) {
+  display: none !important;
+}
+
+/* "More from YouTube": Premium, YouTube Music, YouTube Kids */
+html[data-blinders-more] ytd-guide-section-renderer:has(
+  a[href="/premium"],
+  a[href^="https://music.youtube.com"],
+  a[href*="youtubekids.com"]
+) {
+  display: none !important;
+}

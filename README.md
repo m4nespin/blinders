@@ -1,6 +1,6 @@
 # Blinders: Focus Mode for YouTube
 
-Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page recommendations and the notification bell. Click the toolbar icon to switch each one on or off; changes apply to open YouTube tabs instantly. Only permissions: youtube.com and `storage` (to remember the switches).
+Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page recommendations, the notification bell and the sidebar's Explore and More from YouTube sections. Click the toolbar icon to switch each one on or off; changes apply to open YouTube tabs instantly. Only permissions: youtube.com and `storage` (to remember the switches).
 
 ## What gets hidden
 
@@ -8,6 +8,8 @@ Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page
 - **Members-only:** any video card with a "Members only" badge (home, channel, search, sidebar).
 - **Recommendations:** the suggested-videos column next to the player (and its filter chips). Playlist and live-chat panels stay.
 - **Notifications:** the bell in the top bar, with its unread count and dropdown.
+- **Explore:** the "Explore" section of the sidebar menu (Music, Gaming, Learning…).
+- **More from YouTube:** the "More from YouTube" section of the sidebar menu (Premium, Music, Kids).
 
 ## Install in Zen
 
