@@ -66,38 +66,27 @@ header p, .hint { color: var(--color-muted); font-size: 12px; }
 .text { display: grid; gap: 2px; min-width: 0; }
 .name { font-weight: 600; }
 
-/* Switch */
+/* Switch. Knob is a gradient on the track itself so it stays centred at any
+ * display scale; a positioned ::before snaps to device pixels separately. */
 input[role="switch"] {
+  --knob: 7px;
   appearance: none;
   flex: none;
-  position: relative;
-  width: 34px;
+  width: 36px;
   height: 20px;
   border-radius: 999px;
-  background: var(--color-track);
+  background: radial-gradient(circle, var(--color-thumb) calc(var(--knob) - 0.5px), transparent calc(var(--knob) + 0.5px))
+    0 50% / 20px 20px no-repeat var(--color-track);
   cursor: pointer;
-  transition: background-color var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out), background-position var(--dur-fast) var(--ease-out);
 }
-input[role="switch"]::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--color-thumb);
-  transition: transform var(--dur-fast) var(--ease-out);
-}
-.row:hover input[role="switch"] { background: var(--color-track-hover); }
-input[role="switch"]:checked { background: var(--color-accent); }
-.row:hover input[role="switch"]:checked { background: var(--color-accent-hover); }
-input[role="switch"]:checked::before { transform: translateX(14px); }
-input[role="switch"]:active::before { transform: scale(0.9); }
-input[role="switch"]:checked:active::before { transform: translateX(14px) scale(0.9); }
+.row:hover input[role="switch"] { background-color: var(--color-track-hover); }
+input[role="switch"]:checked { background-color: var(--color-accent); background-position: 100% 50%; }
+.row:hover input[role="switch"]:checked { background-color: var(--color-accent-hover); }
+input[role="switch"]:active { --knob: 6px; }
 input[role="switch"]:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 input[role="switch"]:disabled { opacity: 0.4; cursor: not-allowed; }
 
 @media (prefers-reduced-motion: reduce) {
-  input[role="switch"], input[role="switch"]::before { transition: none; }
+  input[role="switch"] { transition: none; }
 }
