@@ -73,3 +73,25 @@ html[data-blinders-more] ytd-guide-section-renderer:has(
 ) {
   display: none !important;
 }
+
+/* YouTube Premium upsells and Premium-only features */
+html[data-blinders-premium] :is(
+  /* Download: watch-page button, item "⋮" menu entry, sidebar entry */
+  ytd-download-button-renderer,
+  ytd-menu-service-item-download-renderer,
+  ytd-guide-downloads-entry-renderer,
+  /* promo banners and Premium links */
+  ytd-banner-promo-renderer,
+  ytd-statement-banner-renderer,
+  ytd-rich-section-renderer:has(ytd-banner-promo-renderer, ytd-statement-banner-renderer),
+  ytd-guide-entry-renderer:has(a[href="/premium"]),
+  ytd-compact-link-renderer:has(a[href^="/premium"]),
+  /* player: "1080p Premium" quality options and Premium badges in the speed menu */
+  .ytp-quality-menu .ytp-menuitem:has(.ytp-premium-label),
+  .ytp-menuitem-premium-badge,
+  .ytp-speedslider-premium-badge,
+  .ytp-variable-speed-panel-premium-badge,
+  .ytp-variable-speed-panel-premium-upsell-icon
+) {
+  display: none !important;
+}

@@ -1,13 +1,14 @@
 const root = document.documentElement;
 
 // Missing keys default to on, so a fresh install hides everything.
-function apply({ shorts = true, members = true, related = true, notifications = true, explore = true, more = true }) {
+function apply({ shorts = true, members = true, related = true, notifications = true, explore = true, more = true, premium = true }) {
   root.toggleAttribute("data-blinders-shorts", shorts);
   root.toggleAttribute("data-blinders-members", members);
   root.toggleAttribute("data-blinders-related", related);
   root.toggleAttribute("data-blinders-notifications", notifications);
   root.toggleAttribute("data-blinders-explore", explore);
   root.toggleAttribute("data-blinders-more", more);
+  root.toggleAttribute("data-blinders-premium", premium);
   redirectShorts();
 }
 
