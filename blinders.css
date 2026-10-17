@@ -21,7 +21,8 @@ html[data-blinders-shorts] :is(
   ytd-notification-renderer:has(a[href^="/shorts/"]),
   ytm-video-with-context-renderer:has(a[href^="/shorts/"]),
   ytm-compact-video-renderer:has(a[href^="/shorts/"]),
-  /* navigation: expanded sidebar has only title="Shorts", mini sidebar has href */
+  /* navigation: expanded sidebar has only title="Shorts", mini sidebar has href
+   * shortcut: title/aria-label/tab-title match the English label only, add translations if non-English users report it */
   ytd-guide-entry-renderer:has(a[href^="/shorts"], a[title="Shorts"]),
   ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
   ytd-mini-guide-entry-renderer[aria-label="Shorts"],
@@ -40,13 +41,19 @@ html[data-blinders-members] :is(
   ytd-video-renderer,
   ytd-grid-video-renderer,
   ytd-compact-video-renderer,
-  yt-lockup-view-model
+  yt-lockup-view-model,
+  ytm-video-with-context-renderer,
+  ytm-compact-video-renderer
 ):has(.ytBadgeShapeCommerce, .badge-style-type-members-only) {
   display: none !important;
 }
 
-/* Watch-page recommendations sidebar (moves under the video on narrow windows; playlist panel stays) */
-html[data-blinders-related] ytd-watch-flexy #related {
+/* Watch-page recommendations sidebar (moves under the video on narrow windows; playlist panel stays)
+ * and the list under the player on m.youtube.com */
+html[data-blinders-related] :is(
+  ytd-watch-flexy #related,
+  ytm-single-column-watch-next-results-renderer .related-items-container
+) {
   display: none !important;
 }
 
@@ -57,11 +64,9 @@ html[data-blinders-notifications] ytd-notification-topbar-button-renderer {
 
 /* Sidebar sections are found by their fixed links, since the titles are localized */
 
-/* "Explore": Music channel, Gaming, … */
-html[data-blinders-explore] ytd-guide-section-renderer:has(
-  a[href="/gaming"],
-  a[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"]
-) {
+/* "Explore": Music channel, Gaming, …
+ * Both links required: a subscribed Music channel can put its link in the Subscriptions section too */
+html[data-blinders-explore] ytd-guide-section-renderer:has(a[href="/gaming"]):has(a[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"]) {
   display: none !important;
 }
 

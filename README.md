@@ -12,6 +12,8 @@ Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page
 - **More from YouTube:** the "More from YouTube" section of the sidebar menu (Premium, Music, Kids).
 - **Premium features:** the Download button, "Download" in video menus and the sidebar Downloads entry; "Premium" quality options (e.g. 1080p Premium) and Premium badges in the player's settings; Premium promo banners; and "YouTube Premium" links in the sidebar and account menu.
 
+On the mobile site (m.youtube.com, e.g. Firefox for Android) only Shorts, members-only and recommendations are hidden; the other switches target the desktop layout. Shorts menu entries, the channel tab and the filter chip are matched by their English label.
+
 ## Install in Zen
 
 Temporary (removed when Zen restarts):
@@ -23,4 +25,4 @@ Permanent: sign it as an unlisted add-on on [addons.mozilla.org](https://addons.
 
 ## Maintenance
 
-YouTube renames its markup often. All selectors live in `blinders.css`; if something reappears, inspect the card and adjust there. `content.js` only flips `data-blinders-shorts` / `data-blinders-members` on `<html>` to match the popup switches.
+YouTube renames its markup often. All selectors live in `blinders.css`; if something reappears, inspect the card and adjust there. `content.js` sets one `data-blinders-<switch>` attribute on `<html>` per enabled popup switch, tags the "Shorts" filter chip, and redirects Shorts links to the regular player. To add a switch, add it to `popup.html` (the input `id` is the storage key), to `KEYS` in `content.js`, and a matching rule in `blinders.css`.

@@ -1,7 +1,7 @@
+// Each switch's id is its storage key; content.js keeps the same list.
 browser.storage.local.get().then((saved) => {
-  for (const key of ["shorts", "members", "related", "notifications", "explore", "more", "premium"]) {
-    const input = document.getElementById(key);
-    input.checked = saved[key] ?? true;
-    input.addEventListener("change", () => browser.storage.local.set({ [key]: input.checked }));
+  for (const input of document.querySelectorAll('input[role="switch"]')) {
+    input.checked = saved[input.id] ?? true;
+    input.addEventListener("change", () => browser.storage.local.set({ [input.id]: input.checked }));
   }
 });

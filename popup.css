@@ -1,5 +1,5 @@
 /* Hallmark · component: switch list (extension popup) · genre: modern-minimal · theme: custom (neutral ink + YouTube-adjacent red)
- * states: default · hover · focus · active · disabled
+ * states: default · hover · focus · active
  */
 :root {
   --color-paper: oklch(99% 0.003 20);
@@ -85,7 +85,6 @@ input[role="switch"]:checked { background-color: var(--color-accent); background
 .row:hover input[role="switch"]:checked { background-color: var(--color-accent-hover); }
 input[role="switch"]:active { --knob: 6px; }
 input[role="switch"]:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-input[role="switch"]:disabled { opacity: 0.4; cursor: not-allowed; }
 
 @media (prefers-reduced-motion: reduce) {
   input[role="switch"] { transition: none; }
