@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blinders</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Blinders</h1>
+    <p>Focus Mode for YouTube</p>
+  </header>
+
+  <label class="row">
+    <span class="text">
+      <span class="name">Hide Shorts</span>
+      <span class="hint">Shelves, cards, menu entry</span>
+    </span>
+    <input type="checkbox" role="switch" id="shorts" checked>
+  </label>
+
+  <label class="row">
+    <span class="text">
+      <span class="name">Hide members-only</span>
+      <span class="hint">Videos behind a membership</span>
+    </span>
+    <input type="checkbox" role="switch" id="members" checked>
+  </label>
+
+  <script src="popup.js"></script>
+</body>
+</html>
