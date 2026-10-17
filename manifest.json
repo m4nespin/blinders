@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Blinders: Focus Mode for YouTube",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Hides Shorts, members-only videos, recommendations, notifications, sidebar sections and Premium upsells on YouTube.",
   "browser_specific_settings": {
     "gecko": {
