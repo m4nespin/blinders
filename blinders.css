@@ -49,3 +49,8 @@ html[data-blinders-members] :is(
 html[data-blinders-related] ytd-watch-flexy #related {
   display: none !important;
 }
+
+/* Notification bell in the top bar (with its unread count and dropdown) */
+html[data-blinders-notifications] ytd-notification-topbar-button-renderer {
+  display: none !important;
+}

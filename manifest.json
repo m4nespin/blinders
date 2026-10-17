@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Blinders: Focus Mode for YouTube",
-  "version": "1.3.0",
-  "description": "Hides Shorts, members-only videos and watch-page recommendations on YouTube.",
+  "version": "1.4.0",
+  "description": "Hides Shorts, members-only videos, watch-page recommendations and notifications on YouTube.",
   "browser_specific_settings": {
     "gecko": {
       "id": "blinders@local",
