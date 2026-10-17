@@ -1,6 +1,8 @@
 # Blinders: Focus Mode for YouTube
 
-Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page recommendations, the notification bell, the sidebar's Explore and More from YouTube sections, and YouTube Premium features. Click the toolbar icon to switch each one on or off; changes apply to open YouTube tabs instantly. Only permissions: youtube.com and `storage` (to remember the switches).
+Firefox extension (also works in Zen and other Firefox-based browsers) that hides YouTube Shorts, members-only videos, watch-page recommendations, the notification bell, the sidebar's Explore and More from YouTube sections, and YouTube Premium features. Everything is hidden by default after install; click the toolbar icon to switch each one on or off, and changes apply to open YouTube tabs instantly.
+
+**Privacy:** collects no data and makes no network requests. Only permissions: youtube.com and `storage` (to remember the switches locally).
 
 ## What gets hidden
 
@@ -14,15 +16,17 @@ Zen/Firefox extension that hides YouTube Shorts, members-only videos, watch-page
 
 On the mobile site (m.youtube.com, e.g. Firefox for Android) only Shorts, members-only and recommendations are hidden; the other switches target the desktop layout. Shorts menu entries, the channel tab and the filter chip are matched by their English label.
 
-## Install in Zen
+## Install
 
-Temporary (removed when Zen restarts):
+Get it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/blinders-focus-mode-for-youtube/). Requires Firefox 140+ or Firefox for Android 142+.
+
+## Run from source
+
+Temporary (removed when the browser restarts):
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** and pick `manifest.json` from this folder.
 
-Permanent: sign it as an unlisted add-on on [addons.mozilla.org](https://addons.mozilla.org/developers/) (free, automated), or run `npx web-ext sign --channel=unlisted` with AMO API keys, then install the resulting `.xpi`.
+## License
 
-## Maintenance
-
-YouTube renames its markup often. All selectors live in `blinders.css`; if something reappears, inspect the card and adjust there. `content.js` sets one `data-blinders-<switch>` attribute on `<html>` per enabled popup switch, tags the "Shorts" filter chip, and redirects Shorts links to the regular player. To add a switch, add it to `popup.html` (the input `id` is the storage key), to `KEYS` in `content.js`, and a matching rule in `blinders.css`.
+[MIT](LICENSE)
