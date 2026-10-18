@@ -18,7 +18,7 @@ On the mobile site (m.youtube.com, e.g. Firefox for Android) only Shorts, member
 
 ## Install
 
-Get it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/blinders-focus-mode-for-youtube/). Requires Firefox 140+ or Firefox for Android 142+.
+Get it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/blinders-for-youtube/). Requires Firefox 140+ or Firefox for Android 142+.
 
 ## Run from source
 
